@@ -36,7 +36,8 @@
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="btn_fwd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DUU-Oa-fhJ"/>
+                                            <action selector="btn_fwd:" destination="BYZ-38-t0r" eventType="touchDown" id="cDC-HN-Kum"/>
+                                            <action selector="btn_stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NqT-DN-sKg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0MU-ox-Aen">
@@ -47,7 +48,8 @@
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="btn_lft:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MQp-ep-xEW"/>
+                                            <action selector="btn_lft:" destination="BYZ-38-t0r" eventType="touchDown" id="Qe4-oo-ktw"/>
+                                            <action selector="btn_stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1zz-gV-8sz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfZ-eK-qfd">
@@ -58,7 +60,8 @@
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="btn_right:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qRj-J1-7BI"/>
+                                            <action selector="btn_right:" destination="BYZ-38-t0r" eventType="touchDown" id="KZ8-Sg-5iZ"/>
+                                            <action selector="btn_stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Uf-wy-kan"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNL-aY-BtO">
@@ -69,7 +72,8 @@
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="btn_bck:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xq9-Me-R1e"/>
+                                            <action selector="btn_bck:" destination="BYZ-38-t0r" eventType="touchDown" id="Pci-5y-q4G"/>
+                                            <action selector="btn_stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Urh-Ps-7HK"/>
                                         </connections>
                                     </button>
                                 </subviews>

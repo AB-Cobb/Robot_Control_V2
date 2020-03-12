@@ -23,17 +23,27 @@ class ViewController: UIViewController {
             IBO_cam.load(req)
         }// */
     }
+    //forward
     @IBAction func btn_fwd(_ sender: Any) {
         socketMan.sendCmd(cmd: "fwd")
     }
+
+    //right
     @IBAction func btn_right(_ sender: Any) {
         socketMan.sendCmd(cmd: "rght")
     }
+    //back
     @IBAction func btn_bck(_ sender: Any) {
         socketMan.sendCmd(cmd: "bck")
     }
+    //left
     @IBAction func btn_lft(_ sender: Any) {
         socketMan.sendCmd(cmd: "lft")
     }
+    //stop
+    @IBAction func btn_stop(_ sender: Any) {
+        socketMan.sendCmd(cmd: "stop")
+    }
+    
 }
 
