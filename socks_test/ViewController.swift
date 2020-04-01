@@ -22,27 +22,41 @@ class ViewController: UIViewController {
             let req = URLRequest(url: cam_url)
             IBO_cam.load(req)
         }// */
+        let mvc = MenuViewController()
+        welcomeText.text = "Welcome,  \(mvc.username)"
+        textAction.text = "Online - Idle"
+        
     }
+    @IBOutlet weak var welcomeText: UILabel!
+    
+    @IBOutlet weak var textAction: UILabel!
+    
     //forward
     @IBAction func btn_fwd(_ sender: Any) {
         socketMan.sendCmd(cmd: "fwd")
+        textAction.text = "Foward"
     }
 
     //right
     @IBAction func btn_right(_ sender: Any) {
         socketMan.sendCmd(cmd: "rght")
+        textAction.text = "Turn Right"
     }
     //back
     @IBAction func btn_bck(_ sender: Any) {
         socketMan.sendCmd(cmd: "bck")
+        textAction.text = "Backward"
     }
+    
     //left
     @IBAction func btn_lft(_ sender: Any) {
         socketMan.sendCmd(cmd: "lft")
+        textAction.text = "Turn Left"
     }
     //stop
     @IBAction func btn_stop(_ sender: Any) {
         socketMan.sendCmd(cmd: "stop")
+        textAction.text = "Idle"
     }
     
 }
