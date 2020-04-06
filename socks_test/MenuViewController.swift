@@ -19,6 +19,12 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         buttonProceed.isEnabled = false
         buttonProceed.setTitleColor(UIColor(named: "red"), for: .normal)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     @IBOutlet weak var buttonProceed: UIButton!
@@ -33,7 +39,35 @@ class MenuViewController: UIViewController {
             buttonProceed.isEnabled = true
         buttonProceed.setTitleColor(UIColor(named: "green"), for: .normal)
         }
-        username = textUsername.text ?? "user"
     }
     
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboard = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboard.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if ((notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue) != nil {
+            if self.view.frame.origin.y != 0 {
+                self.view.frame.origin.y = 0
+            }
+        }
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @IBAction func proceedButton(_ sender: UIButton) {
+        self.username = textUsername.text!
+        performSegue(withIdentifier: "proceed", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var vc = ViewController()
+        vc.username = self.username
+    }
 }

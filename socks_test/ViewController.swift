@@ -12,6 +12,7 @@ import SocketIO
 import WebKit
 
 class ViewController: UIViewController {
+    var username = ""
     
     @IBOutlet weak var IBO_cam: WKWebView!
     var socketMan = SocketIOManager();
@@ -22,10 +23,8 @@ class ViewController: UIViewController {
             let req = URLRequest(url: cam_url)
             IBO_cam.load(req)
         }// */
-        let mvc = MenuViewController()
-        welcomeText.text = "Welcome,  \(mvc.username)"
+        welcomeText.text = "Welcome, \(self.username)"
         textAction.text = "Online - Idle"
-        
     }
     @IBOutlet weak var welcomeText: UILabel!
     
