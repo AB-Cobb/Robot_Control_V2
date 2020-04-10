@@ -67,7 +67,9 @@ class MenuViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var vc = ViewController()
-        vc.username = self.username
+        if segue.identifier == "proceed"{
+            let vc = segue.destination as? ViewController
+            vc?.username = self.username
+        }
     }
 }

@@ -21,11 +21,13 @@ class SocketIOManager: NSObject {
     func connect() {
         socket.connect()
     }
-    func sendCmd(cmd : String){
-        let data_cmd = ["drive" : cmd]
+    func sendCmd(cmd : String, username : String){
+        let data_cmd = ["drive" : cmd, "username" : username]
         socket.emit("cmd", data_cmd)
+        /*
         let data_log = ["txt" : cmd]
         socket.emit("ctrl_log", data_log)
+         */
     }
 
     func close() {

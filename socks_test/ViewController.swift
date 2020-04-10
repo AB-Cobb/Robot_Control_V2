@@ -11,18 +11,19 @@ import SocketIO
 
 import WebKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,WKUIDelegate {
     var username = ""
     
     @IBOutlet weak var IBO_cam: WKWebView!
     var socketMan = SocketIOManager();
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         socketMan.connect();
-        if let cam_url = URL(string: "site.domain.com"){
-            let req = URLRequest(url: cam_url)
-            IBO_cam.load(req)
-        }// */
+        if let url = URL(string: "https://picamserver.herokuapp.com/") {
+            let request = URLRequest(url: url)
+            IBO_cam.load(request)
+        }
         welcomeText.text = "Welcome, \(self.username)"
         textAction.text = "Online - Idle"
     }
@@ -32,31 +33,30 @@ class ViewController: UIViewController {
     
     //forward
     @IBAction func btn_fwd(_ sender: Any) {
-        socketMan.sendCmd(cmd: "fwd")
+        socketMan.sendCmd(cmd: "fwd", username: self.username)
         textAction.text = "Foward"
     }
 
     //right
     @IBAction func btn_right(_ sender: Any) {
-        socketMan.sendCmd(cmd: "rght")
+        socketMan.sendCmd(cmd: "rght", username: self.username)
         textAction.text = "Turn Right"
     }
     //back
     @IBAction func btn_bck(_ sender: Any) {
-        socketMan.sendCmd(cmd: "bck")
+        socketMan.sendCmd(cmd: "bck", username: self.username)
         textAction.text = "Backward"
     }
     
     //left
     @IBAction func btn_lft(_ sender: Any) {
-        socketMan.sendCmd(cmd: "lft")
+        socketMan.sendCmd(cmd: "lft", username: self.username)
         textAction.text = "Turn Left"
     }
     //stop
     @IBAction func btn_stop(_ sender: Any) {
-        socketMan.sendCmd(cmd: "stop")
+        socketMan.sendCmd(cmd: "stop", username: self.username)
         textAction.text = "Idle"
     }
-    
 }
 
